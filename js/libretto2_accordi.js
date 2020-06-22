@@ -119,8 +119,13 @@ function change_all_chords(id,direction){
 }
 
 function getAccordi(){
-	var app_settings = jQuery.jStorage.get('app_settings');
-	aTon = app_settings.aTonalita;
+	if( jQuery.jStorage != undefined ){
+		var app_settings = jQuery.jStorage.get('app_settings');
+		aTon = app_settings.aTonalita;
+	}
+	else {
+		aTon = aTonalita;
+	}
 }
 
 function getNewChord(chord, nTonalita){
