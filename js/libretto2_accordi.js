@@ -190,6 +190,7 @@ function parseCantoAccordi(canto,tonalita,bShow) {
 	var bFindNum = false;
 	var bStartTag = false;
 	var bAutoTag = false;
+
 	jQuery.each(aCanto, function(k,line) {
 		// Gestione della personalizzazione
 		if (line.trim().indexOf('{memorize') > -1) {
@@ -229,7 +230,7 @@ function parseCantoAccordi(canto,tonalita,bShow) {
 			bAutoTag = true;
     }
     else if( line.trim().indexOf('{start_chorus}') > -1 || line.trim() == '\\beginchorus' || line.trim().indexOf('{start_of_chorus') > -1 || line.trim().indexOf('{soc') > -1 ) {
-			if( ! bAutoTag ){
+			if( ! bAutoTag && newFormat.lenght > 0 ){
 				newFormat += "</div>";
 				bAutoTag = true;
 			}
